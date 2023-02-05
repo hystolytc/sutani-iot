@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "6c32ec79-c075-4dbe-b5e4-7a2aa0f164d8",
+		"name": "sutani-iot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "234495"
+	},
+	"item": [
+		{
+			"name": "register-sensor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sensor_id",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sensor_id\": \"sensor_id_1\",\n    \"name\": \"sensor 1\",\n    \"type\": \"light\",\n    \"region\": \"bdg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sensor/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensor",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send-sensor-data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sensor_id",
+						"value": "sensor_id_1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": \"value of sensor with auth guard test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/sensor-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensor-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get received sensor data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sensor by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/sensor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sensor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
