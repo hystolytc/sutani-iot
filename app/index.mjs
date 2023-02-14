@@ -4,11 +4,13 @@ import router from './routes/sensor.mjs'
 import sensorDatas from './routes/sensor_data.mjs'
 import auth_sensor from './middleware/auth_sensor.mjs'
 import data from './routes/data.mjs'
+import cors from 'cors'
 
 const app = express()
 initializeDB()
 
 app.use(express.json())
+app.use(cors())
 app.use('/sensor', router)
 app.use('/sensor-data', auth_sensor, sensorDatas)
 app.use('/data', data)
